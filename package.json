@@ -1,0 +1,9 @@
+{
+  "name": "pyodide",
+  "version": "1.0.0",
+  "main": "n.js",
+  "dependencies": {
+    "node-fetch": "3.2.6",
+    "yargs": "17.5.1"
+  }
+}
