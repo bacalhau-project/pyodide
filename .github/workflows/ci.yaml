@@ -1,0 +1,28 @@
+name: ci
+
+on:
+  push:
+    branches:
+      - main
+  pull_request: {}
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    name: Build and test the image
+    steps:
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Check out code
+        uses: actions/checkout@v3
+
+      - name: Build image
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          platforms: linux/amd64
+          push: false
+          target: test
+          tags: |
+            pyodide:latest

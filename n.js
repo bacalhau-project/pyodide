@@ -6,10 +6,10 @@ async function main() {
     // parse commandline argument -c
     // set filename to first commandline argument
 
-    var argv = yargs(process.argv.slice(2)).argv;
+    const argv = yargs(process.argv.slice(2)).argv;
 
     let programPath = null;
-    if (argv._.length == 1) {
+    if (argv._.length === 1) {
         programPath = argv._[0];
     }
 
@@ -33,7 +33,7 @@ async function main() {
         program = argv.c;
     }
 
-    if (process.env.BACALHAU_JOB_SPEC == "") {
+    if (process.env.BACALHAU_JOB_SPEC === "") {
       console.error("Must specify a BACALHAU_JOB_SPEC environment variable")
       process.exit(1);
     }
